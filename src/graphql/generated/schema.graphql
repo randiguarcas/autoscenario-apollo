@@ -1,0 +1,15 @@
+type Query {
+  books: [Book]
+}
+
+"""A book"""
+type Book {
+  """id of the book"""
+  id: ID!
+
+  """title of book"""
+  title: String
+
+  """author of book"""
+  author: String
+}
