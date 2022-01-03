@@ -1,4 +1,5 @@
 type Query {
+  """Get all books query"""
   books: [Book]
 }
 
@@ -8,8 +9,5 @@ type Book {
   id: ID!
 
   """title of book"""
-  title: String
-
-  """author of book"""
-  author: String
+  name: String
 }

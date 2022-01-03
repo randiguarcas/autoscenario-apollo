@@ -1,11 +1,9 @@
-import { GraphQLObjectType } from "graphql";
-import getAllBooksQuery from "./getAllBooksQuery";
+import { getAllBooksQueryResolver } from "@src/graphql/schema/resolvers/query/getAllBooksQuery";
 
-const query = new GraphQLObjectType({
-  name: "Query",
-  fields: {
-    books: getAllBooksQuery,
+const query = {
+  books: {
+    resolve: getAllBooksQueryResolver,
   },
-});
+};
 
 export default query;
