@@ -1,6 +1,9 @@
 type Query {
   """Get all books query"""
   books: [Book]
+
+  """Get all books query"""
+  getMake(id: String): Make
 }
 
 """A book"""
@@ -10,4 +13,25 @@ type Book {
 
   """title of book"""
   name: String
+}
+
+"""All makes"""
+type Make {
+  """id of make"""
+  id: ID!
+
+  """name of make"""
+  name: String
+
+  """enabled of make"""
+  enabled: Boolean
+
+  """code of make"""
+  code: String
+
+  """slug of make"""
+  slug: String
+
+  """logo of make"""
+  logo: String
 }

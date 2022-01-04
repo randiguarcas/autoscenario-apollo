@@ -16,39 +16,44 @@ model spatial_ref_sys {
 }
 
 model make {
-  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name                 String
-  enabled              Boolean
-  created_at           DateTime               @default(now()) @db.Timestamp(6)
-  created_by           String
-  updated_at           DateTime?              @default(now()) @db.Timestamp(6)
-  updated_by           String?
-  make_source_provider make_source_provider[]
-}
-
-model make_source_provider {
-  id                 String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  make_id            String          @db.Uuid
-  source_provider_id String          @db.Uuid
-  code               String?
+  id                 String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name               String
   enabled            Boolean
-  created_at         DateTime        @default(now()) @db.Timestamp(6)
-  created_by         String
-  updated_at         DateTime?       @default(now()) @db.Timestamp(6)
+  source_provider_id String?          @db.Uuid
+  code               String?
+  slug               String?
+  logo               String?
+  created_at         DateTime?        @default(now()) @db.Timestamp(6)
+  created_by         String?
+  updated_at         DateTime?        @default(now()) @db.Timestamp(6)
   updated_by         String?
-  make               make            @relation(fields: [make_id], references: [id], onUpdate: Restrict)
-  source_provider    source_provider @relation(fields: [source_provider_id], references: [id], onUpdate: Restrict)
+  source_provider    source_provider? @relation(fields: [source_provider_id], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  model              model[]
 }
 
 model source_provider {
-  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name                 String
-  api_key              String?
-  base_url             String?
-  created_at           DateTime               @default(now()) @db.Timestamp(6)
-  created_by           String
-  updated_at           DateTime?              @default(now()) @db.Timestamp(6)
-  updated_by           DateTime?              @db.Timestamp(6)
-  enabled              Boolean
-  make_source_provider make_source_provider[]
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String
+  api_key    String?
+  base_url   String?
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  created_by String
+  updated_at DateTime? @default(now()) @db.Timestamp(6)
+  updated_by DateTime? @db.Timestamp(6)
+  enabled    Boolean
+  make       make[]
+}
+
+model model {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String
+  code       String?
+  enabled    Boolean
+  slug       String?
+  make_id    String    @db.Uuid
+  created_at DateTime  @default(now()) @db.Timestamptz(6)
+  created_by String
+  updated_at DateTime? @default(now()) @db.Timestamptz(6)
+  updated_by String?
+  make       make      @relation(fields: [make_id], references: [id], onUpdate: Restrict)
 }

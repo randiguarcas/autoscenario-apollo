@@ -1,5 +1,5 @@
 import { GraphQLResolverMap } from 'apollo-graphql';
-// import { Author, Book } from '@prisma/client';
+// import { make } from '@prisma/client';
 // import { getAuthorById } from '@src/data/authorService';
 // import { getBooksByAuthor } from '@src/data/bookService';
 import { IApolloServerContext } from '@src/lib/interfaces/IApolloServerContext';
