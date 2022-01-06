@@ -116,3 +116,16 @@ export const seachModelByMakeId = async (makeId: string) => {
 
   return localModels;
 };
+
+export const searchModelByMakeIn = async (makeIn: Array<any>) => {
+  const localModels = await prismaContext.prisma.model.findMany({
+    where: {
+      make_id: {
+        in: makeIn
+      },
+      enabled: true,
+    },
+  });
+
+  return localModels;
+}

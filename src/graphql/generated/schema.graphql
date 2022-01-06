@@ -7,6 +7,9 @@ type Query {
 
   """Get all books query"""
   model_by_make_id(makeId: String): [Model]
+
+  """Get models by make id array"""
+  model_by_make_in(makes: [ID]): [Model]
 }
 
 """A book"""

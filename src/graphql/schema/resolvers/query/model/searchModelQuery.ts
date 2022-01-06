@@ -1,5 +1,10 @@
-import { GraphQLFieldConfig, GraphQLFieldResolver, GraphQLList, GraphQLObjectType, GraphQLString } from "graphql";
-import { make, model } from "@prisma/client";
+import {
+  GraphQLFieldConfig,
+  GraphQLFieldResolver,
+  GraphQLList,
+  GraphQLString,
+} from "graphql";
+import { model } from "@prisma/client";
 import { IApolloServerContext } from "@src/lib/interfaces/IApolloServerContext";
 import { seachModelByMakeId } from "@src/repositories/model";
 import ModelType from "@src/graphql/schema/typedefs/ModelType";
@@ -20,7 +25,7 @@ const getSearchModel: GraphQLFieldConfig<unknown, IApolloServerContext> = {
   args: {
     makeId: {
       type: GraphQLString,
-    }
+    },
   },
   resolve: getSearchModelResolver,
 };

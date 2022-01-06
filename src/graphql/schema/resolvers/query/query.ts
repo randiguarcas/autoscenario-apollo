@@ -2,6 +2,7 @@
 
 import { getAllBooksQueryResolver } from "@src/graphql/schema/resolvers/query/getAllBooksQuery";
 import { getMakeResolver } from "./make/getMakeQuery";
+import { modelByMakeIdInResolver } from "./model/modelByMakeIn";
 import { getSearchModelResolver } from "./model/searchModelQuery";
 
 const query = {
@@ -16,6 +17,9 @@ const query = {
   },
   model_by_make_id: {
     resolve: getSearchModelResolver
+  },
+  model_by_make_in: {
+    resolve: modelByMakeIdInResolver
   }
 };
 
