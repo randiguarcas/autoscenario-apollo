@@ -14,7 +14,7 @@ const query = {
   getMake: {
     resolve: getMakeResolver
   },
-  models_make: {
+  model_by_make_id: {
     resolve: getSearchModelResolver
   }
 };

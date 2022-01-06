@@ -6,7 +6,7 @@ type Query {
   getMake(id: String): Make
 
   """Get all books query"""
-  models_make(makeId: String): [Model]
+  model_by_make_id(makeId: String): [Model]
 }
 
 """A book"""

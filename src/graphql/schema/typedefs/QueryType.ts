@@ -12,7 +12,7 @@ const queryType: GraphQLObjectType = new GraphQLObjectType({
     books: getAllBooksQuery,
     // getAllMakes: getAllMakesQuery,
     getMake: getMakeQuery,
-    models_make: getSearchModelQuery
+    model_by_make_id: getSearchModelQuery
     // authors: getAllAuthorsQuery,
     // searchModel: searchModel
   },
