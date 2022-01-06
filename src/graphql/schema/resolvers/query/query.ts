@@ -1,7 +1,8 @@
-import { getListResolver } from "@src/graphql/schema/resolvers/query/make/getAllMakesQuery";
+// import { getListResolver } from "@src/graphql/schema/resolvers/query/make/getAllMakesQuery";
 
 import { getAllBooksQueryResolver } from "@src/graphql/schema/resolvers/query/getAllBooksQuery";
 import { getMakeResolver } from "./make/getMakeQuery";
+import { getSearchModelResolver } from "./model/searchModelQuery";
 
 const query = {
   books: {
@@ -12,7 +13,10 @@ const query = {
   // },
   getMake: {
     resolve: getMakeResolver
+  },
+  models_make: {
+    resolve: getSearchModelResolver
   }
 };
-console.log(query)
+
 export default query;

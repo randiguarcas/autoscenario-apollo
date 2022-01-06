@@ -57,3 +57,8 @@ model model {
   updated_by String?
   make       make      @relation(fields: [make_id], references: [id], onUpdate: Restrict)
 }
+
+model simple {
+  id   String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name String
+}

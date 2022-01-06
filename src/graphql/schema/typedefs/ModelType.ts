@@ -6,6 +6,8 @@ import {
   GraphQLBoolean,
 } from "graphql";
 
+import MakeType from "./MakeType";
+
 const ModelType: GraphQLObjectType = new GraphQLObjectType({
   name: "Model",
   description: "All models",
@@ -18,9 +20,25 @@ const ModelType: GraphQLObjectType = new GraphQLObjectType({
       type: GraphQLString,
       description: "name of model",
     },
+    code: {
+      type: GraphQLString,
+      description: "name of model",
+    },
+    slug: {
+      type: GraphQLString,
+      description: "name of model",
+    },
+    make_id: {
+      type: GraphQLString,
+      description: "name of model",
+    },
     enabled: {
       type: GraphQLBoolean,
       description: "enabled of model",
+    },
+    make: {
+      type: MakeType,
+      description: "author of book",
     },
   }),
 });

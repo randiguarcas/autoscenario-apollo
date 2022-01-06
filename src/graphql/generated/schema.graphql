@@ -4,6 +4,9 @@ type Query {
 
   """Get all books query"""
   getMake(id: String): Make
+
+  """Get all books query"""
+  models_make(makeId: String): [Model]
 }
 
 """A book"""
@@ -34,4 +37,28 @@ type Make {
 
   """logo of make"""
   logo: String
+}
+
+"""All models"""
+type Model {
+  """id of model"""
+  id: ID!
+
+  """name of model"""
+  name: String
+
+  """name of model"""
+  code: String
+
+  """name of model"""
+  slug: String
+
+  """name of model"""
+  make_id: String
+
+  """enabled of model"""
+  enabled: Boolean
+
+  """author of book"""
+  make: Make
 }
